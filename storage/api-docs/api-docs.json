@@ -1,0 +1,134 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/Sort": {
+            "get": {
+                "tags": [
+                    "Sort"
+                ],
+                "operationId": "4f97ca2f918d260c5b4ccb32fb8c400a",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of projects."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Sort"
+                ],
+                "summary": "新增排序",
+                "description": "新增排序",
+                "operationId": "Sort",
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sort2",
+                        "in": "query",
+                        "description": "Sort2",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "資源成功建立"
+                    },
+                    "400": {
+                        "description": "請求格式錯誤"
+                    }
+                }
+            }
+        },
+        "/api/Sort/{id}": {
+            "put": {
+                "tags": [
+                    "Sort"
+                ],
+                "summary": "修改排序",
+                "description": "新增修改排序排序",
+                "operationId": "Sort2",
+                "parameters": [
+                    {
+                        "parameter": "id",
+                        "name": "id",
+                        "in": "path",
+                        "description": "input your id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sort2",
+                        "in": "query",
+                        "description": "Sort2",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "資源成功"
+                    },
+                    "400": {
+                        "description": "請求格式錯誤"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Sort"
+                ],
+                "summary": "刪除排序",
+                "description": "刪除排序",
+                "operationId": "Sort3",
+                "parameters": [
+                    {
+                        "parameter": "id",
+                        "name": "id",
+                        "in": "path",
+                        "description": "input your id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "資源成功"
+                    },
+                    "400": {
+                        "description": "請求格式錯誤"
+                    }
+                }
+            }
+        }
+    }
+}
