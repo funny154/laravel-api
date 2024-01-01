@@ -4,7 +4,6 @@ stages:
 deploy:
   stage: deploy
   image: cjwind/gitlab-executor:docker-awscli-0.1.0
-  environment: staging
   variables:
     ECR_REPO_URI: $ECR_BASE/$ECR_REPO
   script:
