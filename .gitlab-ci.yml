@@ -16,3 +16,4 @@ deploy:
     - docker push $ECR_REPO_URI:latest
     - docker rmi $ECR_REPO_URI:$IMAGE_TAG
     - docker rmi $ECR_REPO_URI:latest
+
