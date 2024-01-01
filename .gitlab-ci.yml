@@ -1,0 +1,19 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: cjwind/gitlab-executor:docker-awscli-0.1.0
+  environment: staging
+  variables:
+    ECR_REPO_URI: $ECR_BASE/$ECR_REPO
+  script:
+    - cat $ENV >> .env
+    - IMAGE_TAG=`date +%Y%m%d-%H%M%S`
+    - docker build . -t $ECR_REPO_URI:$IMAGE_TAG
+    - docker tag $ECR_REPO_URI:$IMAGE_TAG $ECR_REPO_URI:latest
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_BASE
+    - docker push $ECR_REPO_URI:$IMAGE_TAG
+    - docker push $ECR_REPO_URI:latest
+    - docker rmi $ECR_REPO_URI:$IMAGE_TAG
+    - docker rmi $ECR_REPO_URI:latest

@@ -1,0 +1,22 @@
+{
+    "agent": {
+        "run_as_user": "root"
+    },
+    "logs": {
+        "logs_collected": {
+            "files": {
+                "collect_list": [
+                    {
+                        "file_path": "/var/www/html/storage/logs/laravel.log",
+                        "log_group_name": "/my-app/laravel.log"
+                    },
+                    {
+                        "file_path": "/var/log/cron.log",
+                        "log_group_name": "/my-app/cron.log"
+                    }
+                ]
+            }
+        },
+        "log_stream_name": "{instance_id}/{local_hostname}"
+    }
+}
